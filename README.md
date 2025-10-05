@@ -218,7 +218,7 @@ A continuación, se describe la **participación**, **cardinalidad**, **interpre
   - Un **pedido** está **formado** por **uno o varios productos**.  
   - Un **producto** puede **aparecer** en **muchos pedidos**.
 - **Cardinalidad:** `Pedido 1 : N Producto`, `Producto 0 : N Pedido`.
-- **Interpretación:** Línea de pedido clásica (un pedido agrupa productos).  
+- **Interpretación:** Un pedido agrupa productos.  
 - **Importancia:** Eje de la venta y base para inventario y facturación.
 
 ---
