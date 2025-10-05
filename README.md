@@ -97,7 +97,7 @@ El objetivo del modelo es **organizar eficientemente** la información y describ
 | **DNI (PK)** | Identificador único del empleado. | `12345678A` |
 | **Nombre empleado** | Nombre y apellidos. | `Irene Martín Díaz` |
 
-## 2.4 ⛓️ Atributos relación Empleado - Zona
+### 2.3.1 ⛓️ Atributos relación Empleado - Zona
 | **Atributo** | **Descripción** | **Ejemplo** |
 |---|---|---|
 | **Puesto trabajo** | Rol o función. | `Jardinero`, `Encargado` |
