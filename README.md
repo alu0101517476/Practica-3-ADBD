@@ -197,9 +197,9 @@ Se describen **participación**, **cardinalidad**, **interpretación** e **impor
   - Un **producto** puede estar **asignado a varias zonas**.
 - **Cardinalidad:** `N : M`.
 - **Atributos de la relación:**  
-  - **Disponibilidad** (ver [2.2.1](#221-atributos-relación-zona--producto-asignado)).
+  - **Disponibilidad** Indica cuándo un producto está disponible en una zona específica..
 - **Interpretación:** Determina la asignación operativa de productos a zonas.
-- **Importancia:** Reparte responsabilidades y garantiza cobertura operativa por zona.
+- **Importancia:** Permite planificar operaciones de cultivo, venta y logística, asegurando que los productos estén disponibles según la planificación de la zona.
 
 ---
 
@@ -267,7 +267,7 @@ Se describen **participación**, **cardinalidad**, **interpretación** e **impor
    - Un producto puede estar en múltiples pedidos.
 
 7. **Relación Zona – Producto (Asignado)**  
-   - La **Disponibilidad** debe ser coherente con calendarios/turnos definidos (sin solapes imposibles).
+   - La **Disponibilidad** debe ser coherente con calendarios/turnos definidos.
 
 8. **Programa Tajinaste Plus**  
    - La afiliación es **opcional**: un cliente puede **no estar suscrito**.  
