@@ -169,7 +169,7 @@ El objetivo del modelo es **organizar eficientemente** la información y describ
 ---
 
 ## 3. Relaciones
-Se describen **participación**, **cardinalidad**, **interpretación** e **importancia** de cada relación del diagrama.
+A continuación, se describe la **participación**, **cardinalidad**, **interpretación** e **importancia** de cada relación del diagrama.
 
 ### 3.1. Relación Vivero – Zona (**Formado**)
 - **Participación:**  
