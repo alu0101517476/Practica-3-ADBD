@@ -1,6 +1,6 @@
 # Practica-3-ADBD
 
-# 📘 Práctica 3: Modelo Entidad-Relación. **Vivero / Gestión de pedidos**  
+# 📘 Práctica 3: Modelo Entidad-Relación. **Viveros**  
 ---
 
 ## 🏫 Información Académica
