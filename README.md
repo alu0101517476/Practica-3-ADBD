@@ -201,7 +201,7 @@ Se describen **participación**, **cardinalidad**, **interpretación** e **impor
 ### 3.5. Relación Pedido – Producto (**Forma**)
 - **Participación:**  
   - Un **pedido** está **formado** por **uno o varios productos**.  
-  - Un **producto** puede **aparecer** en **muchos pedidos**.
+  - Un **producto** puede no **aparecer** en ningún pedido o **aparecer** en **muchos pedidos**.
 - **Cardinalidad:** `N : M`.
 - **Interpretación:** Línea de pedido clásica (un pedido agrupa productos).  
 - **Importancia:** Eje de la venta y base para inventario y facturación.
