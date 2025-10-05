@@ -255,19 +255,31 @@ Se describen **participación**, **cardinalidad**, **interpretación** e **impor
 3. **Relación Vivero – Zona**  
    - Participación **total** en ambos extremos: todo vivero tiene **al menos una zona** y toda zona **pertenece a un vivero**.
 
+## 4. Restricciones semánticas
+
+1. **Unicidad de Ubicación en Vivero y Zona**  
+   - En **Vivero** y en **Zona**, el atributo **Ubicación** es **UNIQUE** y **derivado de (Latitud, Longitud)**.  
+   - **No pueden existir dos viveros ni dos zonas con el mismo par (lat, long)**. Esta restricción garantiza la identificación geográfica inequívoca y evita duplicidades.
+
+2. **Integridad de claves**  
+   - **Nombre vivero**, **Nombre zona**, **DNI (Empleado/Cliente)**, **Código producto** e **ID de pedido** son **claves primarias** y no admiten nulos ni duplicados.
+
+3. **Relación Vivero – Zona**  
+   - Participación **total** en ambos extremos: todo vivero tiene **al menos una zona** y máximo N zonas y toda zona **pertenece a un vivero**.
+
 4. **Relación Zona – Empleado (Pertenece)**  
-   - Cada **empleado** debe estar **asignado exactamente a una zona** (*participación total* del empleado).  
-   - Una **zona** puede tener **cero o más empleados** (p. ej., fuera de temporada).
+   - Cada **empleado** debe estar **asignado exactamente a una zona**.  
+   - Una **zona** puede tener **uno o más empleados**.
 
 5. **Relación Cliente – Pedido**  
-   - **Cada pedido** debe estar **asociado a un cliente** y **tener fecha válida** (no futura).
+   - **Cada pedido** debe estar **asociado a un cliente** y un cliente puede tener **cero o varios pedidos**.
 
 6. **Relación Pedido – Producto**  
    - Un **pedido** debe contener **al menos un producto**.  
-   - Un producto puede estar en múltiples pedidos.
+   - Un producto puede estar en ninguno o en múltiples pedidos.
 
 7. **Relación Zona – Producto (Asignado)**  
-   - La **Disponibilidad** debe ser coherente con calendarios/turnos definidos.
+   - La **Disponibilidad** debe ser coherente con calendarios/turnos definidos (sin solapes imposibles).
 
 8. **Programa Tajinaste Plus**  
    - La afiliación es **opcional**: un cliente puede **no estar suscrito**.  
