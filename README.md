@@ -29,7 +29,9 @@
 2. [Entidades y atributos](#2-entidades-y-atributos)  
    2.1 [🌱 Vivero](#21-vivero)  
    2.2 [🗺️ Zona](#22-zona)  
+   2.2.1 [⛓️ Atributos relación Zona – Producto (Asignado)](#221-atributos-relación-zona--producto-asignado)  
    2.3 [👷 Empleado](#23-empleado)  
+   2.3.1 [⛓️ Atributos relación Empleado – Zona (Pertenece)](#231-atributos-relación-empleado--zona-pertenece)  
    2.4 [📦 Producto](#24-producto)  
    2.5 [🧾 Pedido](#25-pedido)  
    2.6 [👤 Cliente](#26-cliente)  
@@ -37,7 +39,7 @@
 3. [Relaciones](#3-relaciones)  
    3.1 [Relación Vivero – Zona (Formado)](#31-relación-vivero--zona-formado)  
    3.2 [Relación Zona – Empleado (Pertenece)](#32-relación-zona--empleado-pertenece)  
-   3.3 [Relación Empleado – Producto (Asignado)](#33-relación-empleado--producto-asignado)  
+   3.3 [Relación Zona – Producto (Asignado)](#33-relación-zona--producto-asignado)  
    3.4 [Relación Empleado – Pedido (Gestiona)](#34-relación-empleado--pedido-gestiona)  
    3.5 [Relación Pedido – Producto (Forma)](#35-relación-pedido--producto-forma)  
    3.6 [Relación Cliente – Pedido (Realiza)](#36-relación-cliente--pedido-realiza)  
@@ -85,6 +87,13 @@ El objetivo del modelo es **organizar eficientemente** la información y describ
 
 > **Nota de unicidad:** Igual que en *Vivero*, la **ubicación** de *Zona* es **única**. Se destaca para asegurar la localización inequívoca de cada zona.
 
+#### 2.2.1 ⛓️ Atributos relación Zona – Producto (Asignado)
+**Descripción:** Atributos propios de la relación **Asignado** entre **Zona** y **Producto**.
+
+| **Atributo** | **Descripción** | **Ejemplo** |
+|---|---|---|
+| **Disponibilidad** | Disponibilidad/turno asociado a la asignación de un producto en una zona. | `L–V 08:00–14:00` |
+
 ---
 
 ### 2.3 👷 Empleado
@@ -97,13 +106,15 @@ El objetivo del modelo es **organizar eficientemente** la información y describ
 | **DNI (PK)** | Identificador único del empleado. | `12345678A` |
 | **Nombre empleado** | Nombre y apellidos. | `Irene Martín Díaz` |
 
-### 2.3.1 ⛓️ Atributos relación Empleado - Zona
+#### 2.3.1 ⛓️ Atributos relación Empleado – Zona (Pertenece)
+**Descripción:** Atributos que dependen de la adscripción del **Empleado** a una **Zona**.
+
 | **Atributo** | **Descripción** | **Ejemplo** |
 |---|---|---|
-| **Puesto trabajo** | Rol o función. | `Jardinero`, `Encargado` |
+| **Puesto trabajo** | Rol o función desempeñada en la zona. | `Jardinero`, `Encargado` |
 | **Época del año** | Temporada asociada al contrato/turno. | `Primavera` |
-| **Fecha inicio** | Alta en el puesto. | `2025-02-01` |
-| **Fecha final** | Fin de contrato (si aplica). | `2025-06-30` |
+| **Fecha inicio** | Alta en el puesto en esa zona. | `2025-02-01` |
+| **Fecha final** | Fin de contrato en esa zona (si aplica). | `2025-06-30` |
 
 ---
 
@@ -180,15 +191,15 @@ Se describen **participación**, **cardinalidad**, **interpretación** e **impor
 
 ---
 
-### 3.3. Relación Empleado – Producto (**Asignado**)
+### 3.3. Relación **Zona – Producto** (**Asignado**)
 - **Participación:**  
-  - Un **empleado** puede estar **asignado** a **varios productos**.  
-  - Un **producto** puede estar **asignado** a **varios empleados**.
+  - Una **zona** puede tener **varios productos asignados**.  
+  - Un **producto** puede estar **asignado a varias zonas**.
 - **Cardinalidad:** `N : M`.
 - **Atributos de la relación:**  
-  - **Disponibilidad**: disponibilidad/turno del empleado respecto al producto.
-- **Interpretación:** Gestión de responsables de cuidado/mantenimiento de productos.
-- **Importancia:** Reparte responsabilidades y garantiza cobertura operativa.
+  - **Disponibilidad** (ver [2.2.1](#221-atributos-relación-zona--producto-asignado)).
+- **Interpretación:** Determina la asignación operativa de productos a zonas.
+- **Importancia:** Reparte responsabilidades y garantiza cobertura operativa por zona.
 
 ---
 
@@ -205,7 +216,7 @@ Se describen **participación**, **cardinalidad**, **interpretación** e **impor
 ### 3.5. Relación Pedido – Producto (**Forma**)
 - **Participación:**  
   - Un **pedido** está **formado** por **uno o varios productos**.  
-  - Un **producto** puede no **aparecer** en ningún pedido o **aparecer** en **muchos pedidos**.
+  - Un **producto** puede **aparecer** en **muchos pedidos**.
 - **Cardinalidad:** `N : M`.
 - **Interpretación:** Línea de pedido clásica (un pedido agrupa productos).  
 - **Importancia:** Eje de la venta y base para inventario y facturación.
@@ -235,7 +246,7 @@ Se describen **participación**, **cardinalidad**, **interpretación** e **impor
 ## 4. Restricciones semánticas
 
 1. **Unicidad de Ubicación en Vivero y Zona**  
-   - En **Vivero** y en **Zona**, el atributo **Ubicación** es **UNIQUE** y **compuesto por (Latitud, Longitud)**.  
+   - En **Vivero** y en **Zona**, el atributo **Ubicación** es **UNIQUE** y **derivado de (Latitud, Longitud)**.  
    - **No pueden existir dos viveros ni dos zonas con el mismo par (lat, long)**. Esta restricción garantiza la identificación geográfica inequívoca y evita duplicidades.
 
 2. **Integridad de claves**  
@@ -244,7 +255,7 @@ Se describen **participación**, **cardinalidad**, **interpretación** e **impor
 3. **Relación Vivero – Zona**  
    - Participación **total** en ambos extremos: todo vivero tiene **al menos una zona** y toda zona **pertenece a un vivero**.
 
-4. **Relación Zona – Empleado**  
+4. **Relación Zona – Empleado (Pertenece)**  
    - Cada **empleado** debe estar **asignado exactamente a una zona** (*participación total* del empleado).  
    - Una **zona** puede tener **cero o más empleados** (p. ej., fuera de temporada).
 
@@ -255,16 +266,15 @@ Se describen **participación**, **cardinalidad**, **interpretación** e **impor
    - Un **pedido** debe contener **al menos un producto**.  
    - Un producto puede estar en múltiples pedidos.
 
-7. **Relación Empleado – Pedido (Gestiona)**  
-   - **Cada pedido** debe estar **gestionado por un único empleado** cuando se tramita.
-
-8. **Relación Empleado – Producto (Asignado)**  
+7. **Relación Zona – Producto (Asignado)**  
    - La **Disponibilidad** debe ser coherente con calendarios/turnos definidos (sin solapes imposibles).
 
-9. **Programa Tajinaste Plus**  
+8. **Programa Tajinaste Plus**  
    - La afiliación es **opcional**: un cliente puede **no estar suscrito**.  
    - Si existe, debe registrarse **Fecha de suscripción** y **Bonificaciones** aplicables.
 
-10. **Restricciones numéricas y de dominio**  
+9. **Restricciones de dominio**  
    - **Precio** de *Producto* debe ser **> 0**.  
-   - **Fechas**: `Fecha final` (Empleado) ≥ `Fecha inicio` cuando exista; `Fecha pedido` ≤ fecha actual.
+   - **Fechas**: `Fecha final` (en la relación Empleado–Zona) ≥ `Fecha inicio` cuando exista; `Fecha pedido` ≤ fecha actual.
+
+---
