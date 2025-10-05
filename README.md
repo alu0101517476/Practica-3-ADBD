@@ -63,7 +63,7 @@ El objetivo del modelo es **organizar eficientemente** la información y describ
 | **Atributo** | **Descripción** | **Ejemplo** |
 |---|---|---|
 | **Nombre vivero (PK)** | Identificador único del vivero. | `VIV-TEGU` |
-| **Ubicación (UNIQUE, compuesto)** | **Par (Latitud, Longitud)** que identifica **de forma única** la posición del vivero. *No puede haber dos viveros con el mismo par lat/long.* | `28.4879, -16.3154` |
+| **Ubicación (UNIQUE, derivado)** | **Par (Latitud, Longitud)** que identifica **de forma única** la posición del vivero. *No puede haber dos viveros con el mismo par lat/long.* | `28.4879, -16.3154` |
 | **Latitud** | Componente de *Ubicación*. | `28.4879` |
 | **Longitud** | Componente de *Ubicación*. | `-16.3154` |
 
@@ -79,7 +79,7 @@ El objetivo del modelo es **organizar eficientemente** la información y describ
 | **Atributo** | **Descripción** | **Ejemplo** |
 |---|---|---|
 | **Nombre zona (PK)** | Identificador único de la zona (dentro del sistema). | `Z-ALOE-N2` |
-| **Ubicación (UNIQUE, compuesto)** | **Par (Latitud, Longitud)** único por zona. *Dos zonas no pueden compartir exactamente las mismas coordenadas.* | `28.4882, -16.3150` |
+| **Ubicación (UNIQUE, derivado)** | **Par (Latitud, Longitud)** único por zona. *Dos zonas no pueden compartir exactamente las mismas coordenadas.* | `28.4882, -16.3150` |
 | **Latitud** | Componente de *Ubicación*. | `28.4882` |
 | **Longitud** | Componente de *Ubicación*. | `-16.3150` |
 
@@ -96,6 +96,10 @@ El objetivo del modelo es **organizar eficientemente** la información y describ
 |---|---|---|
 | **DNI (PK)** | Identificador único del empleado. | `12345678A` |
 | **Nombre empleado** | Nombre y apellidos. | `Irene Martín Díaz` |
+
+## 2.4 ⛓️ Atributos relación Empleado - Zona
+| **Atributo** | **Descripción** | **Ejemplo** |
+|---|---|---|
 | **Puesto trabajo** | Rol o función. | `Jardinero`, `Encargado` |
 | **Época del año** | Temporada asociada al contrato/turno. | `Primavera` |
 | **Fecha inicio** | Alta en el puesto. | `2025-02-01` |
@@ -264,8 +268,3 @@ Se describen **participación**, **cardinalidad**, **interpretación** e **impor
 10. **Restricciones numéricas y de dominio**  
    - **Precio** de *Producto* debe ser **> 0**.  
    - **Fechas**: `Fecha final` (Empleado) ≥ `Fecha inicio` cuando exista; `Fecha pedido` ≤ fecha actual.
-
----
-
-> **Resumen clave a destacar:**  
-> - **Ubicación es UNIQUE** tanto en **Vivero** como en **Zona** y está **compuesta por (Latitud, Longitud)**. Esta decisión de diseño evita ambigüedades de localización y simplifica consultas espaciales básicas por coordenadas.
