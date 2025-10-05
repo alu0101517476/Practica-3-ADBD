@@ -197,7 +197,7 @@ A continuación, se describe la **participación**, **cardinalidad**, **interpre
   - Un **producto** puede estar **asignado a varias zonas**.
 - **Cardinalidad:** `1 : N`.
 - **Atributos de la relación:**  
-  - **Disponibilidad** Indica cuándo un producto está disponible en una zona específica..
+  - **Disponibilidad** Indica cuándo un producto está disponible en una zona específica.
 - **Interpretación:** Determina la asignación operativa de productos a zonas.
 - **Importancia:** Permite planificar operaciones de cultivo, venta y logística, asegurando que los productos estén disponibles según la planificación de la zona.
 
