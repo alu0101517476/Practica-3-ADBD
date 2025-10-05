@@ -175,7 +175,7 @@ Se describen **participación**, **cardinalidad**, **interpretación** e **impor
 - **Participación:**  
   - Un **vivero** está **formado** por **una o varias zonas**.  
   - Cada **zona** **pertenece** a **un único vivero**.
-- **Cardinalidad:** `Vivero 1 : N Zona`.
+- **Cardinalidad:** `Vivero 1 : N Zona`, `Zona 1 : 1 Vivero`.
 - **Interpretación:** La estructura del vivero se compone de varias zonas físicas diferenciadas.
 - **Importancia:** Permite organizar el terreno y asociar personal/operaciones por zona.
 
@@ -185,7 +185,7 @@ Se describen **participación**, **cardinalidad**, **interpretación** e **impor
 - **Participación:**  
   - Un **empleado** **pertenece** a **una única zona**.  
   - Una **zona** puede tener **muchos empleados**.
-- **Cardinalidad:** `Zona 1 : N Empleado`.
+- **Cardinalidad:** `Zona 1 : N Empleado`, `Empleado 1 : 1 Zona`.
 - **Interpretación:** Ubica a cada empleado en una zona concreta de trabajo.
 - **Importancia:** Facilita la gestión de recursos humanos y planificación por zonas.
 
@@ -195,7 +195,7 @@ Se describen **participación**, **cardinalidad**, **interpretación** e **impor
 - **Participación:**  
   - Una **zona** puede tener **varios productos asignados**.  
   - Un **producto** puede estar **asignado a varias zonas**.
-- **Cardinalidad:** `N : M`.
+- **Cardinalidad:** `1 : N`.
 - **Atributos de la relación:**  
   - **Disponibilidad** Indica cuándo un producto está disponible en una zona específica..
 - **Interpretación:** Determina la asignación operativa de productos a zonas.
@@ -207,7 +207,7 @@ Se describen **participación**, **cardinalidad**, **interpretación** e **impor
 - **Participación:**  
   - Un **empleado** puede **gestionar** **cero o varios pedidos**.  
   - **Cada pedido** es **gestionado por un único empleado**.
-- **Cardinalidad:** `Empleado 1 : N Pedido` (con **opcionalidad 0** en el lado *Pedido* antes de ser asignado).
+- **Cardinalidad:** `Empleado 0 : N Pedido`, `Pedido 1 : 1 Empleado`.
 - **Interpretación:** Asigna un responsable a cada pedido.
 - **Importancia:** Traza la gestión y mejora el control de tiempos y calidad del servicio.
 
@@ -217,7 +217,7 @@ Se describen **participación**, **cardinalidad**, **interpretación** e **impor
 - **Participación:**  
   - Un **pedido** está **formado** por **uno o varios productos**.  
   - Un **producto** puede **aparecer** en **muchos pedidos**.
-- **Cardinalidad:** `N : M`.
+- **Cardinalidad:** `Pedido 1 : N Producto`, `Producto 0 : N Pedido`.
 - **Interpretación:** Línea de pedido clásica (un pedido agrupa productos).  
 - **Importancia:** Eje de la venta y base para inventario y facturación.
 
@@ -227,7 +227,7 @@ Se describen **participación**, **cardinalidad**, **interpretación** e **impor
 - **Participación:**  
   - Un **cliente** puede **realizar** **cero o varios pedidos**.  
   - **Cada pedido** está **realizado por un único cliente**.
-- **Cardinalidad:** `Cliente 1 : N Pedido` (con **opcionalidad 0** en el cliente si aún no tiene pedidos).
+- **Cardinalidad:** `Cliente 0 : N Pedido`, `Pedido 1 : 1 Cliente`.
 - **Interpretación:** Vincula el histórico de pedidos con su titular.
 - **Importancia:** Fundamental para el CRM, seguimiento y estadísticas de ventas.
 
@@ -237,7 +237,7 @@ Se describen **participación**, **cardinalidad**, **interpretación** e **impor
 - **Participación:**  
   - Un **cliente** puede **no pertenecer** o **pertenecer** a **Tajinaste Plus** (**0:1**).  
   - Cada **registro** de *Tajinaste Plus* **corresponde a un único cliente**.
-- **Cardinalidad:** `Cliente 1 : 0..1 Tajinaste Plus` (relación **1:1 opcional**).
+- **Cardinalidad:** `Cliente 0 : 1 Tajinaste Plus`, `Tajinaste Plus 1 : 1 Cliente`.
 - **Interpretación:** Especialización/afiliación al programa de fidelización.
 - **Importancia:** Permite aplicar bonificaciones y segmentar clientes.
 
