@@ -253,18 +253,6 @@ A continuación, se describe la **participación**, **cardinalidad**, **interpre
    - **Nombre vivero**, **Nombre zona**, **DNI (Empleado/Cliente)**, **Código producto** e **ID de pedido** son **claves primarias** y no admiten nulos ni duplicados.
 
 3. **Relación Vivero – Zona**  
-   - Participación **total** en ambos extremos: todo vivero tiene **al menos una zona** y toda zona **pertenece a un vivero**.
-
-## 4. Restricciones semánticas
-
-1. **Unicidad de Ubicación en Vivero y Zona**  
-   - En **Vivero** y en **Zona**, el atributo **Ubicación** es **UNIQUE** y **derivado de (Latitud, Longitud)**.  
-   - **No pueden existir dos viveros ni dos zonas con el mismo par (lat, long)**. Esta restricción garantiza la identificación geográfica inequívoca y evita duplicidades.
-
-2. **Integridad de claves**  
-   - **Nombre vivero**, **Nombre zona**, **DNI (Empleado/Cliente)**, **Código producto** e **ID de pedido** son **claves primarias** y no admiten nulos ni duplicados.
-
-3. **Relación Vivero – Zona**  
    - Participación **total** en ambos extremos: todo vivero tiene **al menos una zona** y máximo N zonas y toda zona **pertenece a un vivero**.
 
 4. **Relación Zona – Empleado (Pertenece)**  
